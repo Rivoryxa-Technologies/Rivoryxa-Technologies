@@ -14,6 +14,8 @@
 
 We sell answers, not engineer months. Send us the bug report or the coverage hole. We return a proof, a checked waiver, or a test that reaches it, at a fixed scope, with evidence you can rerun on open tools.
 
+We specialize in RISC-V verification, formal verification, RTL debugging, coverage analysis, compliance testing, and verification automation.
+
 Every engagement is a list of specific questions about a specific piece of RTL. For each one we investigate, produce evidence, and hand back a result you can reproduce without us and without a tool licence. Problem, investigation, evidence, reproducible result. That is the whole method.
 
 We work on open source tools (Verilator, SymbiYosys, Yosys, z3, cocotb, UVM on Verilator). Each service below is priced per issue, per batch, or per block, never per engineer month.
@@ -22,9 +24,9 @@ We work on open source tools (Verilator, SymbiYosys, Yosys, z3, cocotb, UVM on V
 
 | Service | What you get |
 |---|---|
-| **Coverage hole disposition** | Send the uncovered lines or conditions. For each one you get a formal proof that it is dead, a waiver backed by a checked software invariant, or a directed test that reaches it, with the proof log, solver script, or VCD hit count. Priced per batch of five. |
+| **Coverage hole disposition** | Send the uncovered lines or conditions. For each one you get a formal proof that it is unreachable, a waiver backed by a checked software invariant, or a directed test that reaches it, with the proof log, solver script, or VCD hit count. Priced per batch of five. |
 | **Bug reproduction and root cause** | Send the bug report. You get a counterexample trace on the reported RTL, a proof on the fixed RTL, and the mechanism in plain language. Or a not reproduced verdict with the environment condition that explains the report. Priced per bug or per batch. |
-| **RISC-V compliance (ACT4)** | Send the core and its ISA configuration. You get the RISC-V certification suite running on your simulator, the pass and fail table per extension, a triage note on every failure, and the scripts to rerun it on the next revision. Priced per configuration. |
+| **RISC-V compliance (ACT4)** | Send the core and its ISA configuration. You get the RISC-V ACT4 compliance suite running on your simulator, the pass and fail table per extension, a triage note on every failure, and the scripts to rerun it on the next revision. Priced per configuration. |
 | **Debug, interrupt, and exception verification** | Properties and tests for single step, debug entry and exit, CSR access in debug, interrupt delivery, and trap ordering. |
 | **Formal verification and SVA** | Send the block. You get ten to fifteen design specific properties, each paired with a reachability cover, bound without RTL edits, and proven or bounded with SymbiYosys. Priced per block. |
 | **Simulation environments** | cocotb or UVM testbenches with reference models, constrained random stimulus, functional coverage, and self checking. |
@@ -57,6 +59,6 @@ We do verification. We do not offer physical design, timing closure, DFT, analog
 
 ## Let's talk
 
-If you have an open bug report, a coverage report that will not close, or a core that needs the RISC-V certification suite run on it, send it over.
+If you have an open bug report, a coverage report that will not close, or a core that needs the RISC-V ACT4 compliance suite run on it, send it over.
 
 **LinkedIn:** [Rivoryxa Technologies](https://www.linkedin.com/company/rivoryxa-technologies/)
