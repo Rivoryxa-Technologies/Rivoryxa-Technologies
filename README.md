@@ -3,7 +3,7 @@
 
   # Rivoryxa Technologies
 
-  **The RISC-V verification company that closes the issue, not the timesheet.**
+  **RISC-V verification. Proofs, checked waivers, and directed tests, with evidence you can rerun on open tools.**
 
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Rivoryxa%20Technologies-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/company/rivoryxa-technologies/)
   ![RISC-V](https://img.shields.io/badge/RISC--V-Verification-283272)
