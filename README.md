@@ -1,64 +1,41 @@
-<div align="center">
-  <img src="https://avatars.githubusercontent.com/Rivoryxa-Technologies" width="130" alt="Rivoryxa Technologies" />
+# Rivoryxa Technologies
 
-  # Rivoryxa Technologies
+RTL verification for semiconductor and RISC-V teams. We investigate design bugs, coverage gaps, and design rules, with evidence your team can inspect and rerun.
 
-  **RISC-V verification. Proofs, checked waivers, and directed tests, with evidence you can rerun on open tools.**
+We agree the question, inputs, deliverables, and completion criteria before work starts. When a check cannot establish an answer, we record the remaining uncertainty and the next step.
 
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Rivoryxa%20Technologies-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/company/rivoryxa-technologies/)
-  ![RISC-V](https://img.shields.io/badge/RISC--V-Verification-283272)
-  ![Formal](https://img.shields.io/badge/Formal-SymbiYosys-6E4C13)
-</div>
+## Explore the work
 
----
+These are public educational demonstrations, not client results or production IP. Each repository states its environment and limitations. A deliberately introduced bug is labelled as such.
 
-Rivoryxa Technologies is a RISC-V verification company. Send us the bug report or the coverage hole. We return a proof, a checked waiver, or a test that reaches it, at a defined scope, with evidence you can rerun on open tools.
+| Problem to explore | Repository | Evidence to inspect |
+| --- | --- | --- |
+| A timer interrupt disappears after its compare value | [RISC-V machine timer](https://github.com/Rivoryxa-Technologies/riscv-mtimer-verification) | Seeded failure, simulation, formal counterexample, checked correction, and coverage dispositions |
+| A random test misses corruption when a FIFO fills | [Asynchronous FIFO](https://github.com/Rivoryxa-Technologies/cdc-verification) | Directed failure on a seeded variant and passing functional tests at three clock pairs |
+| A receiver pauses while data is waiting | [Ready/valid buffer](https://github.com/Rivoryxa-Technologies/ready-valid-verification) | Data stability, ordered transfers, backpressure, and a detected seeded defect |
+| Reset arrives while requests are still pending | [Reset recovery](https://github.com/Rivoryxa-Technologies/reset-recovery-verification) | Flush contract, recovery, and detection of a stale response |
+| One requester keeps losing access to a shared resource | [Round robin arbitration](https://github.com/Rivoryxa-Technologies/round-robin-verification) | Grant safety and bounded waiting in accepted grants, tested against a fixed priority mutant |
+| A controller must keep two directions mutually exclusive | [Formal FSM](https://github.com/Rivoryxa-Technologies/formal-fsm-verification) | Safety proof and reachability checks under the documented model |
+| A testbench needs to predict the correct answer | [Python ALU testbench](https://github.com/Rivoryxa-Technologies/cocotb-alu-verification) | Reference model, directed and random tests, and operation counts |
 
-We specialize in RISC-V verification, formal verification, RTL debugging, coverage analysis, compliance testing, and verification automation.
+Start with the README in a repository. It explains the problem, reproduction command, recorded results, and limits. The new buffer, reset, and arbiter projects include automated runs, measured tool times, and contribution instructions. Tool runtimes are not client delivery estimates. Scenario counts are not code coverage or proof of all behaviour.
 
-Every engagement is a list of specific questions about a specific piece of RTL. For each one we investigate, produce evidence, and hand back a result you can reproduce without us and without a tool licence. Problem, investigation, evidence, reproducible result. That is the whole method.
+## Services supported by these examples
 
-We work on open source tools (Verilator, SymbiYosys, Yosys, z3, cocotb, UVM on Verilator). Every service below is delivered as a defined scope with a rerunnable result.
+- **Bug reproduction and root cause:** a replayable failure when one can be found, a cause analysis, and checks of a proposed correction.
+- **Coverage closure:** investigate gaps and record directed tests, proofs, supported waivers, or unresolved outcomes.
+- **Formal verification and SVA:** design properties, assumptions, counterexamples, proof scope, and reachability checks.
+- **Simulation environments:** stimulus, reference models, automatic checking, and reported coverage for an agreed scope.
+- **Asynchronous FIFO verification:** functional checks for loss, duplication, and reordering across the tested clocks and reset conditions. This does not replace structural CDC analysis or electrical sign off.
 
-## What we do
+## Reference code with limited evidence
 
-| Service | What you get |
-|---|---|
-| **Coverage hole disposition** | Send the uncovered lines or conditions. For each one you get a formal proof that it is unreachable, a waiver backed by a checked software invariant, or a directed test that reaches it, with the proof log, solver script, or VCD hit count. |
-| **Bug reproduction and root cause** | Send the bug report. You get a counterexample trace on the reported RTL, a proof on the fixed RTL, and the mechanism in plain language. Or a not reproduced verdict with the environment condition that explains the report. |
-| **RISC-V compliance (ACT4)** | Send the core and its ISA configuration. You get the RISC-V ACT4 compliance suite running on your simulator, the pass and fail table per extension, a triage note on every failure, and the scripts to rerun it on the next revision. |
-| **Debug, interrupt, and exception verification** | Properties and tests for single step, debug entry and exit, CSR access in debug, interrupt delivery, and trap ordering. |
-| **Formal verification and SVA** | Send the block. You get ten to fifteen design specific properties, each paired with a reachability cover, bound without RTL edits, and proven or bounded with SymbiYosys. |
-| **Simulation environments** | cocotb or UVM testbenches with reference models, constrained random stimulus, functional coverage, and self checking. |
-| **CDC and async FIFO verification** | Dual clock crossings checked on two independent clocks with data integrity checks. |
-| **Verification automation** | Python regression drivers, VCD analysis, watchdogs, result reporting, environment setup scripts. |
+The [SVA library](https://github.com/Rivoryxa-Technologies/riscv-sva-library) and [UVM ALU environment](https://github.com/Rivoryxa-Technologies/uvm-alu-testbench) are code references. Their documented lint results do not establish a formal proof or a completed UVM simulation.
 
-## Repositories
+## Reproduce or contribute
 
-| Capability | Repository | Status |
-|---|---|---|
-| Formal verification | [formal-fsm-verification](https://github.com/Rivoryxa-Technologies/formal-fsm-verification) | Proven by induction with SymbiYosys and z3 |
-| SVA checkers | [riscv-sva-library](https://github.com/Rivoryxa-Technologies/riscv-sva-library) | Lints clean under Verilator |
-| CDC verification | [cdc-verification](https://github.com/Rivoryxa-Technologies/cdc-verification) | Passes on cocotb 2.x and Icarus Verilog |
-| cocotb verification | [cocotb-alu-verification](https://github.com/Rivoryxa-Technologies/cocotb-alu-verification) | Passes on cocotb 2.x and Icarus Verilog |
-| UVM verification | [uvm-alu-testbench](https://github.com/Rivoryxa-Technologies/uvm-alu-testbench) | Lints clean under Verilator; runs on a UVM simulator |
+Open an issue with the repository revision, tool versions, command, expected behaviour, and actual log. For a proposed correction, include a test that fails before the change and passes after it. Do not upload proprietary RTL or client information to these public repositories.
 
-## Tools
+Confidential work begins with an agreed scope, NDA, and source exchange process.
 
-![Verilator](https://img.shields.io/badge/Verilator-5.x-1f6feb)
-![SymbiYosys](https://img.shields.io/badge/SymbiYosys-Yosys%20%7C%20z3%20%7C%20abc-6E4C13)
-![cocotb](https://img.shields.io/badge/cocotb-2.x-3776AB?logo=python&logoColor=white)
-![UVM](https://img.shields.io/badge/UVM-1.2-1793D1)
-![SystemVerilog](https://img.shields.io/badge/SystemVerilog-SVA-EF3B2D)
-![ACT4](https://img.shields.io/badge/RISC--V-ACT4%20%7C%20Sail-283272)
-![Python](https://img.shields.io/badge/Python-automation-3776AB)
-
-## Scope
-
-We do verification. We do not offer physical design, timing closure, DFT, analog, or silicon bring up, and we say so up front so you know exactly what you are getting.
-
-## Let's talk
-
-If you have an open bug report, a coverage report that will not close, or a core that needs the RISC-V ACT4 compliance suite run on it, send it over.
-
-**LinkedIn:** [Rivoryxa Technologies](https://www.linkedin.com/company/rivoryxa-technologies/)
+[Discuss a verification problem by email](mailto:rivoryxatechnologies@gmail.com) · [LinkedIn](https://www.linkedin.com/company/rivoryxa-technologies/)
