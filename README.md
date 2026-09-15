@@ -4,26 +4,34 @@ RTL verification for semiconductor and RISC-V teams. We investigate design bugs,
 
 We agree the question, inputs, deliverables, and completion criteria before work starts. When a check cannot establish an answer, we record the remaining uncertainty and the next step.
 
-## Explore the work
+## Integration and subsystem examples
 
 These are public educational demonstrations, not client results or production IP. Each repository states its environment and limitations. A deliberately introduced bug is labelled as such.
 
 | Problem to explore | Repository | Evidence to inspect |
 | --- | --- | --- |
+| A timer write crosses the interrupt threshold at rollover | [Historical upstream timer regression](https://github.com/Rivoryxa-Technologies/riscv-act4-verification/tree/main/historical) | Two ordinary cases pass before and after; five boundary cases fail before the upstream fix and pass after, including a spurious interrupt. Independent reproduction, not our discovery |
 | Architectural tests must match the core configuration | [RISC-V ACT4 integration](https://github.com/Rivoryxa-Technologies/riscv-act4-verification) | Fresh generation and 94 named RTL test results for pinned CV32E40P v2 RV32IMC; not general certification |
-| FIFO pointers or synchronizer staging change incorrectly | [Bound FIFO assertions](https://github.com/Rivoryxa-Technologies/fifo-assertion-verification) | Executed SVA at three clock pairs, required exercise counts, and detected negative controls |
-| Debug halt and a qualified interrupt arrive together | [RISC-V debug and interrupts](https://github.com/Rivoryxa-Technologies/riscv-debug-interrupt-verification) | Actual pinned CV32E40P controller, directed halt/resume, single-step and exception-priority checks, and two detected priority mutants |
+| FIFO pointers or synchronizer staging change incorrectly | [Bound FIFO assertions](https://github.com/Rivoryxa-Technologies/fifo-assertion-verification) | Concurrent traffic at depths 4/8 and widths 5/8/13; independent flag checks and a stale full-comparator defect; 28 expected outcomes |
+| Debug halt and a qualified interrupt arrive together | [RISC-V debug and interrupts](https://github.com/Rivoryxa-Technologies/riscv-debug-interrupt-verification) | Real pinned CV32E40P controller; synthetic temporal faults pass the ordinary regression but fail checks around stalls, exception flush, and debug return |
 | A regression reports success with incomplete evidence | [Verification automation](https://github.com/Rivoryxa-Technologies/verification-automation) | Complete result matrices from three pinned RTL projects, source hashes, failure handling, and CI |
-| A timer interrupt disappears after its compare value | [RISC-V machine timer](https://github.com/Rivoryxa-Technologies/riscv-mtimer-verification) | Seeded failure, simulation, formal counterexample, checked correction, and coverage dispositions |
-| A random test misses corruption when a FIFO fills | [Asynchronous FIFO](https://github.com/Rivoryxa-Technologies/cdc-verification) | Directed failure on a seeded variant and passing functional tests at three clock pairs |
+
+Start with the README in a repository. It explains the problem, reproduction command, recorded results, and limits. The repositories include automated runs, measured tool times, and contribution instructions. Tool runtimes are not client delivery estimates. Scenario counts are not code coverage or proof of all behaviour.
+
+## Smaller examples of the method
+
+These compact teaching designs explain individual checks and testbench tools. They are not evidence of complex IP verification.
+
+| Problem to explore | Repository | Evidence to inspect |
+| --- | --- | --- |
 | A receiver pauses while data is waiting | [Ready/valid buffer](https://github.com/Rivoryxa-Technologies/ready-valid-verification) | Data stability, ordered transfers, backpressure, and a detected seeded defect |
 | Reset arrives while requests are still pending | [Reset recovery](https://github.com/Rivoryxa-Technologies/reset-recovery-verification) | Flush contract, recovery, and detection of a stale response |
 | One requester keeps losing access to a shared resource | [Round robin arbitration](https://github.com/Rivoryxa-Technologies/round-robin-verification) | Grant safety and bounded waiting in accepted grants, tested against a fixed priority mutant |
 | A controller must keep two directions mutually exclusive | [Formal FSM](https://github.com/Rivoryxa-Technologies/formal-fsm-verification) | Safety proof and reachability checks under the documented model |
 | UVM classes need to run and detect a wrong result | [Executed UVM ALU](https://github.com/Rivoryxa-Technologies/uvm-execution-verification) | Three seeds with 200 scoreboard matches each, plus a detected injected mismatch; no class-covergroup coverage claim |
 | A testbench needs to predict the correct answer | [Python ALU testbench](https://github.com/Rivoryxa-Technologies/cocotb-alu-verification) | Reference model, directed and random tests, and operation counts |
-
-Start with the README in a repository. It explains the problem, reproduction command, recorded results, and limits. The new buffer, reset, and arbiter projects include automated runs, measured tool times, and contribution instructions. Tool runtimes are not client delivery estimates. Scenario counts are not code coverage or proof of all behaviour.
+| A timer interrupt disappears after its compare value | [RISC-V machine timer](https://github.com/Rivoryxa-Technologies/riscv-mtimer-verification) | Seeded failure, simulation, formal counterexample, checked correction, and coverage dispositions |
+| A random test misses corruption when a FIFO fills | [Asynchronous FIFO](https://github.com/Rivoryxa-Technologies/cdc-verification) | Directed failure on a seeded variant and passing functional tests at three clock pairs |
 
 ## Services supported by these examples
 
