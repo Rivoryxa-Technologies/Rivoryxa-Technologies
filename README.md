@@ -4,6 +4,14 @@ RTL verification for semiconductor and RISC-V teams. We investigate design bugs,
 
 We agree the question, inputs, deliverables, and completion criteria before work starts. When a check cannot establish an answer, we record the remaining uncertainty and the next step.
 
+## How we work, in sixteen documents
+
+[CORE-V investigation reports](https://github.com/Rivoryxa-Technologies/core-v-investigation-reports) shows the method applied to real OpenHW CORE-V issues: sixteen public GitHub issues taken to a disposition, each with the evidence, the proof scope, and the limits written down.
+
+Every report follows the clause order used in published silicon errata and anomaly reports: status, description, conditions, implications, action, evidence, limitations and scope, provenance. Where a field was not recorded, it says so rather than being filled in. Ten of the sixteen issues were still open upstream when the reports were published, and none of the reports has been submitted upstream.
+
+Read [issue 1010](https://github.com/Rivoryxa-Technologies/core-v-investigation-reports/blob/main/reports/rtl-triage-cv32e40p-1010.pdf) first. It is three pages: a coverage hole proven unreachable, the two proofs that establish it, the cover that shows the proofs are not trivially true, the waiver text, and what the result does not establish.
+
 ## Integration and subsystem examples
 
 These are public educational demonstrations, not client results or production IP. Each repository states its environment and limitations. A deliberately introduced bug is labelled as such.
