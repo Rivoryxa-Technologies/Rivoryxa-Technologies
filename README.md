@@ -63,4 +63,4 @@ Open an issue with the repository revision, tool versions, command, expected beh
 
 Confidential work begins with an agreed scope, NDA, and source exchange process.
 
-[Discuss a verification problem by email](mailto:rivoryxatechnologies@gmail.com) · [LinkedIn](https://www.linkedin.com/company/rivoryxa-technologies/)
+[Website](https://www.rivoryxatechnologies.com/) · [Discuss a verification problem by email](mailto:rivoryxatechnologies@gmail.com) · [LinkedIn](https://www.linkedin.com/company/rivoryxa-technologies/)
